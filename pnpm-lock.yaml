@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/node': ^20.6.3
   '@vitejs/plugin-vue': ^4.2.3
   electron: ^26.2.2
   electron-builder: ^24.6.4
@@ -14,12 +15,13 @@ dependencies:
   vue: 3.3.4
 
 devDependencies:
+  '@types/node': 20.6.3
   '@vitejs/plugin-vue': 4.3.4_vite@4.4.9+vue@3.3.4
   electron: 26.2.2
   electron-builder: 24.6.4
   nodemon: 3.0.1
   typescript: 5.2.2
-  vite: 4.4.9
+  vite: 4.4.9_@types+node@20.6.3
   vue-tsc: 1.8.13_typescript@5.2.2
 
 packages:
@@ -369,7 +371,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.2
       '@types/keyv': 3.1.4
-      '@types/node': 18.17.18
+      '@types/node': 20.6.3
       '@types/responselike': 1.0.0
     dev: true
 
@@ -382,7 +384,7 @@ packages:
   /@types/fs-extra/9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 18.17.18
+      '@types/node': 20.6.3
     dev: true
 
   /@types/http-cache-semantics/4.0.2:
@@ -392,7 +394,7 @@ packages:
   /@types/keyv/3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 18.17.18
+      '@types/node': 20.6.3
     dev: true
 
   /@types/ms/0.7.31:
@@ -403,10 +405,14 @@ packages:
     resolution: {integrity: sha512-/4QOuy3ZpV7Ya1GTRz5CYSz3DgkKpyUptXuQ5PPce7uuyJAOR7r9FhkmxJfvcNUXyklbC63a+YvB3jxy7s9ngw==}
     dev: true
 
+  /@types/node/20.6.3:
+    resolution: {integrity: sha512-HksnYH4Ljr4VQgEy2lTStbCKv/P590tmPe5HqOnv9Gprffgv5WXAY+Y5Gqniu0GGqeTCUdBnzC3QSrzPkBkAMA==}
+    dev: true
+
   /@types/plist/3.0.2:
     resolution: {integrity: sha512-ULqvZNGMv0zRFvqn8/4LSPtnmN4MfhlPNtJCTpKuIIxGVGZ2rYWzFXrvEBoh9CVyqSE7D6YFRJ1hydLHI6kbWw==}
     dependencies:
-      '@types/node': 18.17.18
+      '@types/node': 20.6.3
       xmlbuilder: 15.1.1
     dev: true
     optional: true
@@ -414,7 +420,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 18.17.18
+      '@types/node': 20.6.3
     dev: true
 
   /@types/verror/1.10.6:
@@ -426,7 +432,7 @@ packages:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.17.18
+      '@types/node': 20.6.3
     dev: true
     optional: true
 
@@ -437,7 +443,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.9
+      vite: 4.4.9_@types+node@20.6.3
       vue: 3.3.4
     dev: true
 
@@ -2168,7 +2174,7 @@ packages:
     dev: true
     optional: true
 
-  /vite/4.4.9:
+  /vite/4.4.9_@types+node@20.6.3:
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2196,6 +2202,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.6.3
       esbuild: 0.18.20
       postcss: 8.4.30
       rollup: 3.29.2

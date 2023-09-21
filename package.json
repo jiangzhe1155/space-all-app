@@ -8,13 +8,14 @@
     "vite-dev": "vite",
     "electron-dev": "nodemon --exec electron . --watch ./ --ext .js,.html,.css,.vue",
     "build": "vue-tsc && vite build",
-    "dist": "electron-builder",
+    "dist": "vite build && electron-builder",
     "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@types/node": "^20.6.3",
     "@vitejs/plugin-vue": "^4.2.3",
     "electron": "^26.2.2",
     "electron-builder": "^24.6.4",
