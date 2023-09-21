@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "electron-window-state": "^5.0.3",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -19,7 +20,10 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "electron": "^26.2.2",
     "electron-builder": "^24.6.4",
+    "node-sass": "^9.0.0",
     "nodemon": "^3.0.1",
+    "sass": "^1.68.0",
+    "sass-loader": "^13.3.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vue-tsc": "^1.8.5"
