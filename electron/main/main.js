@@ -5,8 +5,10 @@ const indexHtml = join(process.env.DIST, 'dist/index.html')
 
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 800,
-        height: 600
+        minWidth: 1200,
+        width: 1200,
+        height: 800,
+        minHeight: 800,
     })
 
     if (app.isPackaged) {
