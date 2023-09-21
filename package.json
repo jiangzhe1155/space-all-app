@@ -1,0 +1,57 @@
+{
+  "name": "space-all-app",
+  "private": true,
+  "version": "0.0.1",
+  "main": "electron/main/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "vite-dev": "vite",
+    "electron-dev": "nodemon --exec electron . --watch ./ --ext .js,.html,.css,.vue",
+    "build": "vue-tsc && vite build",
+    "dist": "electron-builder",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "electron": "^26.2.2",
+    "electron-builder": "^24.6.4",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vue-tsc": "^1.8.5"
+  },
+  "build": {
+    "productName": "all on one",
+    "appId": "all-in-one",
+    "asar": true,
+    "directories": {
+      "output": "release/${version}"
+    },
+    "files": [
+      "dist",
+      "electron"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "win": {
+      "icon": "./electron/log.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {}
+  }
+}
