@@ -18,6 +18,7 @@ specifiers:
   vite: ^4.4.5
   vue: ^3.3.4
   vue-i18n: ^9.4.1
+  vue-router: '4'
   vue-tsc: ^1.8.5
 
 dependencies:
@@ -27,6 +28,7 @@ dependencies:
   universalify: registry.npmmirror.com/universalify/2.0.0
   vue: 3.3.4
   vue-i18n: 9.4.1_vue@3.3.4
+  vue-router: registry.npmmirror.com/vue-router/4.2.5_vue@3.3.4
 
 devDependencies:
   '@types/node': 20.6.3
@@ -2318,6 +2320,12 @@ packages:
     dev: true
     optional: true
 
+  registry.npmmirror.com/@vue/devtools-api/6.5.0:
+    resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.5.0.tgz}
+    name: '@vue/devtools-api'
+    version: 6.5.0
+    dev: false
+
   registry.npmmirror.com/@xmldom/xmldom/0.8.10:
     resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@xmldom/xmldom/-/xmldom-0.8.10.tgz}
     name: '@xmldom/xmldom'
@@ -4056,6 +4064,18 @@ packages:
       extsprintf: registry.npmmirror.com/extsprintf/1.4.1
     dev: true
     optional: true
+
+  registry.npmmirror.com/vue-router/4.2.5_vue@3.3.4:
+    resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-router/-/vue-router-4.2.5.tgz}
+    id: registry.npmmirror.com/vue-router/4.2.5
+    name: vue-router
+    version: 4.2.5
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api/6.5.0
+      vue: 3.3.4
+    dev: false
 
   registry.npmmirror.com/wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/wrappy/-/wrappy-1.0.2.tgz}
