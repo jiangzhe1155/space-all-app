@@ -8,7 +8,7 @@
   <!--    </div>-->
   <!--  </div>-->
   <div class="h-screen">
-    <div class="relative left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 max-w-[480px] max-h-[600px]">
+    <div class="relative left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 max-w-[30rem] max-h-[50rem]">
       <div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
         <form class="space-y-6" action="#" method="POST">
           <div>
