@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@headlessui/vue': ^1.7.16
   '@heroicons/vue': ^2.0.18
+  '@tailwindcss/forms': ^0.5.6
   '@types/node': ^20.6.3
   '@vitejs/plugin-vue': ^4.2.3
   autoprefixer: ^10.4.16
@@ -24,8 +25,6 @@ specifiers:
   vue-tsc: ^1.8.5
 
 dependencies:
-  '@headlessui/vue': 1.7.16_vue@3.3.4
-  '@heroicons/vue': 2.0.18_vue@3.3.4
   electron-window-state: registry.npmmirror.com/electron-window-state/5.0.3
   jsonfile: registry.npmmirror.com/jsonfile/6.1.0
   mkdirp: registry.npmmirror.com/mkdirp/3.0.1
@@ -35,6 +34,9 @@ dependencies:
   vue-router: registry.npmmirror.com/vue-router/4.2.5_vue@3.3.4
 
 devDependencies:
+  '@headlessui/vue': 1.7.16_vue@3.3.4
+  '@heroicons/vue': 2.0.18_vue@3.3.4
+  '@tailwindcss/forms': 0.5.6_tailwindcss@3.3.3
   '@types/node': 20.6.3
   '@vitejs/plugin-vue': 4.3.4_vite@4.4.9+vue@3.3.4
   autoprefixer: registry.npmmirror.com/autoprefixer/10.4.16_postcss@8.4.30
@@ -358,7 +360,7 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.3.4
-    dev: false
+    dev: true
 
   /@heroicons/vue/2.0.18_vue@3.3.4:
     resolution: {integrity: sha512-BcTC9nq2TkwNSfQuqo96J7ehx4etezypc2YeTq7KsXWxrcrerhkgjLrxGRBnStN0wrXo0Gv4BInybqz5uBG6Cw==}
@@ -366,7 +368,7 @@ packages:
       vue: '>= 3'
     dependencies:
       vue: 3.3.4
-    dev: false
+    dev: true
 
   /@intlify/core-base/9.4.1:
     resolution: {integrity: sha512-WIwx+elsZbxSMxRG5+LC+utRohFvmZMoDevfKOfnYMLbpCjCSavqTfHJAtfsY6ruowzqXeKkeLhRHbYbjoJx5g==}
@@ -421,6 +423,15 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       defer-to-connect: 2.0.1
+    dev: true
+
+  /@tailwindcss/forms/0.5.6_tailwindcss@3.3.3:
+    resolution: {integrity: sha512-Fw+2BJ0tmAwK/w01tEFL5TiaJBX1NLT1/YbWgvm7ws3Qcn11kiXxzNTEQDMs5V3mQemhB56l3u0i9dwdzSQldA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: registry.npmmirror.com/tailwindcss/3.3.3
     dev: true
 
   /@tootallnate/once/2.0.0:
@@ -1641,6 +1652,11 @@ packages:
   /mimic-response/3.1.0:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
     engines: {node: '>=10'}
+    dev: true
+
+  /mini-svg-data-uri/1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
     dev: true
 
   /minimatch/3.1.2:
