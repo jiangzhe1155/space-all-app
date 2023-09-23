@@ -13,8 +13,7 @@ const createWindow = () => {
     const win = new BrowserWindow({
         ...status, webPreferences: {
             preload: path.join(__dirname, 'preload.js')
-        },
-        titleBarStyle: 'hidden',
+        },autoHideMenuBar:true
     })
 
     if (app.isPackaged) {
