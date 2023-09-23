@@ -1,5 +1,5 @@
 import {createApp} from 'vue'
-import './assets/style/global.sass'
+import '@/style.css'
 import App from './App.vue'
 
 
