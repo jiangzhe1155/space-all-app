@@ -1,18 +1,18 @@
 <template>
   <div :style="windowSize" class="bg-white">
-    <div class="z-10 relative left-1/2 top-1/2	transform -translate-y-1/2 -translate-x-1/2 w-[32rem]">
-      <div class="bg-white px-6 py-12 shadow-xl rounded-lg px-12 space-y-6">
+    <div class="z-10 relative left-1/2 top-1/2	transform -translate-y-1/2 -translate-x-1/2 w-[30rem]">
+      <div class="bg-white px-6 py-6 shadow-xl rounded-lg px-12 space-y-6">
         <div class="mb-6 text-center text-2xl font-medium leading-9 tracking-tight text-gray-900">{{
             $t('login.title')
           }}
         </div>
         <div class="flex flex-row">
-          <button class="relative w-1/2 justify-center px-3 py-1.5 text-sm leading-6 hover:text-indigo-500 select_tab"
+          <button class="relative w-1/2 justify-center px-3 py-1.5 text-md leading-6 hover:text-indigo-500 select_tab"
                   @click="()=>state.formType = 'phone'"
                   :class="{'active':state.formType === 'phone'}">
             {{ $t('login.phone') }}
           </button>
-          <button class="relative w-1/2 justify-center px-3 py-1.5 text-sm leading-6 hover:text-indigo-500 select_tab"
+          <button class="relative w-1/2 justify-center px-3 py-1.5 text-md leading-6 hover:text-indigo-500 select_tab"
                   @click="()=>state.formType = 'email'"
                   :class="{'active':state.formType === 'email'}">
             {{ $t('login.email') }}
@@ -20,25 +20,25 @@
         </div>
 
         <el-form v-model="form" class="space-y-6">
-          <el-form-item :key="state.formType" v-show="state.formType === 'email'">
+          <el-form-item v-if="state.formType === 'email'">
             <el-input size="large" v-model="form.email" type="text" :placeholder="$t('login.email')"></el-input>
           </el-form-item>
 
-          <el-form-item :key="state.formType" v-show="state.formType === 'phone'">
+          <el-form-item v-if="state.formType === 'phone'">
             <el-input v-model="form.phone" type="text" :placeholder="$t('login.phone')"></el-input>
           </el-form-item>
 
-          <el-form-item v-show="state.loginType==='password'" :key="state.loginType">
+          <el-form-item v-if="state.loginType==='password'">
             <el-input v-model="form.password" type="password" :key="state.formType"
                       :placeholder="$t('login.password.name')"></el-input>
           </el-form-item>
 
-          <el-form-item v-show="state.loginType==='code'" :key="state.loginType">
+          <el-form-item v-if="state.loginType==='code'">
             <div class="flex space-x-2">
-              <el-input v-model="form.code" type="text" :key="state.formType" class="flex-grow"
+              <el-input v-model="form.code" type="text" class="flex-grow"
                         :placeholder="$t('login.verify')"></el-input>
               <el-button type="button" class=" w-[6rem] rounded bg-white px-2 py-1 text-xs font-semibold
-               text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">发送验证码
+               text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"> 发送验证码
               </el-button>
             </div>
           </el-form-item>
@@ -51,7 +51,8 @@
         </el-form>
         <div class="flex items-center justify-between">
           <div class="flex items-center">
-            <a href="#" class="text-indigo-400 hover:text-indigo-500">{{ $t('login.code.login') }}</a>
+            <a href="#" class="text-indigo-400 hover:text-indigo-500"
+               @click="()=>state.loginType = 'code'">{{ $t('login.code.login') }}</a>
           </div>
           <div class="leading-6">
             <a href="#" class="text-indigo-400 hover:text-indigo-500">{{ $t('login.password.forget') }}</a>
@@ -67,15 +68,7 @@
             </div>
           </div>
 
-          <div class="mt-6 grid grid-cols-2 gap-4">
-            <!--						<a href="#"-->
-            <!--							 class="flex w-full items-center justify-center gap-3 rounded-md bg-[#1D9BF0] px-3 py-1.5 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1D9BF0]">-->
-            <!--							<svg class="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">-->
-            <!--								<path-->
-            <!--									d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>-->
-            <!--							</svg>-->
-            <!--							<span class="text-sm font-semibold leading-6">Twitter</span>-->
-            <!--						</a>-->
+          <div class="mt-6">
             <a href="#">
               <img src="src/assets/icons/wechat.svg" class="w-10 h-10 hover:duration-25  hover:scale-110">
             </a>
@@ -93,6 +86,7 @@
 
 
 <script setup>
+
 import {useWindowSize} from '@vueuse/core'
 import {computed, reactive} from 'vue'
 
@@ -141,7 +135,8 @@ const windowSize = computed(() => {
 :deep(.el-input__inner) {
   @apply block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1
   ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset
-  focus:ring-indigo-600 sm:text-sm sm:leading-6;
+  focus:ring-indigo-600 text-sm leading-6;
+  line-height: 2rem;
 }
 
 </style>
