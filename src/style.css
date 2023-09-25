@@ -1,11 +1,17 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import "element-plus/dist/index.css";
 
 html,
 body {
     overflow: hidden;
     user-select: none;
+}
+
+input{
+    width: 100%;
 }
 

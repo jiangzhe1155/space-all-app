@@ -1,12 +1,11 @@
 <template>
   <div :style="windowSize" class="bg-white">
-    <div class="z-10 relative left-1/2 top-1/2	transform -translate-y-1/2 -translate-x-1/2 w-[35rem]">
+    <div class="z-10 relative left-1/2 top-1/2	transform -translate-y-1/2 -translate-x-1/2 w-[32rem]">
       <div class="bg-white px-6 py-12 shadow-xl rounded-lg px-12 space-y-6">
         <div class="mb-6 text-center text-2xl font-medium leading-9 tracking-tight text-gray-900">{{
             $t('login.title')
           }}
         </div>
-
         <div class="flex flex-row">
           <button class="relative w-1/2 justify-center px-3 py-1.5 text-sm leading-6 hover:text-indigo-500 select_tab"
                   @click="()=>state.formType = 'phone'"
@@ -19,44 +18,45 @@
             {{ $t('login.email') }}
           </button>
         </div>
-        <form class="space-y-4" method="POST" @submit="()=>false">
-          <div>
-            <div class="mt-2">
-              <input id="email" name="email" autocomplete="email" :placeholder="$t('login.email')" required="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1
-        					ring-inset ring-gray-300 placeholder:text-gray-400
-        			        focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-            </div>
-          </div>
-          <div>
-            <div class="mt-2">
-              <input id="password"
-                     :placeholder="$t('login.password.name')"
-                     name="password" type="password" autocomplete="current-password" required=""
-                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1
-        										  ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset
-        										  focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <a href="#" class="text-indigo-400 hover:text-indigo-500">{{ $t('login.code.login') }}</a>
-            </div>
-            <div class="leading-6">
-              <a href="#" class="text-indigo-400 hover:text-indigo-500">{{ $t('login.password.forget') }}</a>
-            </div>
-          </div>
 
-          <div>
-            <button type="submit"
-                    class="flex w-full justify-center
-        										 rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white
-        										 shadow-sm hover:bg-indigo-500 focus-visible:outline
-        										 focus-visible:outline-2 focus-visible:outline-offset-2
-        										 focus-visible:outline-indigo-600">
-              {{ $t('login.submit') }}
-            </button>
+        <el-form v-model="form" class="space-y-6">
+          <el-form-item :key="state.formType" v-show="state.formType === 'email'">
+            <el-input size="large" v-model="form.email" type="text" :placeholder="$t('login.email')"></el-input>
+          </el-form-item>
+
+          <el-form-item :key="state.formType" v-show="state.formType === 'phone'">
+            <el-input v-model="form.phone" type="text" :placeholder="$t('login.phone')"></el-input>
+          </el-form-item>
+
+          <el-form-item v-show="state.loginType==='password'" :key="state.loginType">
+            <el-input v-model="form.password" type="password" :key="state.formType"
+                      :placeholder="$t('login.password.name')"></el-input>
+          </el-form-item>
+
+          <el-form-item v-show="state.loginType==='code'" :key="state.loginType">
+            <div class="flex space-x-2">
+              <el-input v-model="form.code" type="text" :key="state.formType" class="flex-grow"
+                        :placeholder="$t('login.verify')"></el-input>
+              <el-button type="button" class=" w-[6rem] rounded bg-white px-2 py-1 text-xs font-semibold
+               text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">发送验证码
+              </el-button>
+            </div>
+          </el-form-item>
+
+          <button class="w-full justify-center rounded-md
+                bg-indigo-500 px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline
+                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            {{ $t('login.submit') }}
+          </button>
+        </el-form>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="#" class="text-indigo-400 hover:text-indigo-500">{{ $t('login.code.login') }}</a>
           </div>
-        </form>
+          <div class="leading-6">
+            <a href="#" class="text-indigo-400 hover:text-indigo-500">{{ $t('login.password.forget') }}</a>
+          </div>
+        </div>
         <div>
           <div class="relative mt-10">
             <div class="absolute inset-0 flex items-center" aria-hidden="true">
@@ -136,6 +136,12 @@ const windowSize = computed(() => {
 .active ~ ::before {
   width: 0;
   left: 0;
+}
+
+:deep(.el-input__inner) {
+  @apply block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1
+  ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset
+  focus:ring-indigo-600 sm:text-sm sm:leading-6;
 }
 
 </style>
