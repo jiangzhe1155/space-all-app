@@ -5,8 +5,8 @@ const indexHtml = join(process.env.DIST, 'dist/index.html')
 const windowStateKeeper = require('electron-window-state')
 
 const isMac = process.platform === 'darwin'
-const path = require('path')
 
+const path = require('path')
 
 const createWindow = () => {
     // Menu.setApplicationMenu(null) // null值取消顶部菜单栏

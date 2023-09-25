@@ -1,107 +1,18 @@
 <template>
   <div :style="windowSize" class="bg-white">
-    <div class="z-10 relative left-1/2 top-1/2	transform -translate-y-1/2 -translate-x-1/2 w-[30rem]">
-      <div class="bg-white px-6 py-6 shadow-xl rounded-lg px-12 space-y-6">
-        <div class="mb-6 text-center text-2xl font-medium leading-9 tracking-tight text-gray-900">{{
-            $t('login.title')
-          }}
-        </div>
-        <div class="flex flex-row">
-          <button class="relative w-1/2 justify-center px-3 py-1.5 text-md leading-6 hover:text-indigo-500 select_tab"
-                  @click="()=>state.formType = 'phone'"
-                  :class="{'active':state.formType === 'phone'}">
-            {{ $t('login.phone') }}
-          </button>
-          <button class="relative w-1/2 justify-center px-3 py-1.5 text-md leading-6 hover:text-indigo-500 select_tab"
-                  @click="()=>state.formType = 'email'"
-                  :class="{'active':state.formType === 'email'}">
-            {{ $t('login.email') }}
-          </button>
-        </div>
-
-        <el-form v-model="form" class="space-y-6">
-          <el-form-item v-if="state.formType === 'email'">
-            <el-input size="large" v-model="form.email" type="text" :placeholder="$t('login.email')"></el-input>
-          </el-form-item>
-
-          <el-form-item v-if="state.formType === 'phone'">
-            <el-input v-model="form.phone" type="text" :placeholder="$t('login.phone')"></el-input>
-          </el-form-item>
-
-          <el-form-item v-if="state.loginType==='password'">
-            <el-input v-model="form.password" type="password" :key="state.formType"
-                      :placeholder="$t('login.password.name')"></el-input>
-          </el-form-item>
-
-          <el-form-item v-if="state.loginType==='code'">
-            <div class="flex space-x-2">
-              <el-input v-model="form.code" type="text" class="flex-grow"
-                        :placeholder="$t('login.verify')"></el-input>
-              <el-button type="button" class=" w-[6rem] rounded bg-white px-2 py-1 text-xs font-semibold
-               text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"> 发送验证码
-              </el-button>
-            </div>
-          </el-form-item>
-
-          <button class="w-full justify-center rounded-md
-                bg-indigo-500 px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline
-                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-            {{ $t('login.submit') }}
-          </button>
-        </el-form>
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <a href="#" class="text-indigo-400 hover:text-indigo-500"
-               @click="()=>state.loginType = 'code'">{{ $t('login.code.login') }}</a>
-          </div>
-          <div class="leading-6">
-            <a href="#" class="text-indigo-400 hover:text-indigo-500">{{ $t('login.password.forget') }}</a>
-          </div>
-        </div>
-        <div>
-          <div class="relative mt-10">
-            <div class="absolute inset-0 flex items-center" aria-hidden="true">
-              <div class="w-full border-t border-gray-200"/>
-            </div>
-            <div class="relative flex justify-center text-sm font-medium leading-6">
-              <span class="bg-white px-6 text-gray-900">{{ $t('login.third') }}</span>
-            </div>
-          </div>
-
-          <div class="mt-6">
-            <a href="#">
-              <img src="src/assets/icons/wechat.svg" class="w-10 h-10 hover:duration-25  hover:scale-110">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="transform-gpu blur-3xl">
-      <div class="aspect-[1155/678] absolute left-1/2 top-1/2
-           transform -translate-y-1/2 -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30  h-[50rem]"
-           style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"/>
-    </div>
+    <LoginFormWrapper/>
+    <LoginBackground/>
   </div>
 </template>
-
 
 <script setup>
 
 import {useWindowSize} from '@vueuse/core'
-import {computed, reactive} from 'vue'
+import {computed} from 'vue'
+import LoginBackground from "@/view/login/LoginBackground.vue";
+import LoginFormWrapper from "@/view/login/LoginFormWrapper.vue";
 
 const {width, height} = useWindowSize()
-const TIME_COUNT = 60
-
-const form = reactive({})
-
-const state = reactive({
-  loginType: 'password',
-  formType: 'phone',
-  disableVerifyCodeTimeout: TIME_COUNT,
-  timer: null,
-})
-
 const windowSize = computed(() => {
   return {height: height.value + 'px', width: width.value + 'px'}
 })
@@ -111,31 +22,10 @@ const windowSize = computed(() => {
 
 <style scoped lang="css">
 
-.select_tab::before {
-  @apply bg-indigo-500;
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0.1rem;
-  left: 100%;
-  bottom: 0;
-  transition: 0.1s all linear
-}
-
-.active::before {
-  left: 0;
-  width: 100%;
-}
-
-.active ~ ::before {
-  width: 0;
-  left: 0;
-}
-
 :deep(.el-input__inner) {
   @apply block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1
   ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset
-  focus:ring-indigo-600 text-sm leading-6;
+  focus:ring-indigo-600;
   line-height: 2rem;
 }
 

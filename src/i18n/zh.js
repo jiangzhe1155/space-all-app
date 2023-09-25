@@ -9,9 +9,10 @@ export default {
         },
         email: '邮箱',
         password: {
-            forget: '忘记密码',
+            forget: '忘记密码?',
             name: '密码'
         },
-        phone: '手机号'
+        phone: '手机号',
+        sendVerifyCode:'发送验证码',
     }
 }
